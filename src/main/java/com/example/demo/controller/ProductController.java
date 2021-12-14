@@ -9,48 +9,49 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/product")
 public class ProductController {
-private ProductRepository repository;
+    private ProductRepository repository;
 
-public ProductController(ProductRepository repository){
-    this.repository = repository;
-}
+    public ProductController(ProductRepository repository) {
+        this.repository = repository;
+    }
 
-@GetMapping
-public List<Product> listProduct(){
-    return repository.list();
-}
+    @GetMapping
+    public List<Product> listProduct() {
+        return repository.list();
+    }
 
-@PostMapping
+    @PostMapping
     public Product createAProduct(
             @RequestBody Product product
-){
-    repository.create(product);
-return product;
+    ) {
+        //   System.out.println(product.toString());
+        repository.create(product);
+        return product;
     }
 
-    @GetMapping(value="/{id}")
+    @GetMapping(value = "/{id}")
     public Product getById(
-            @PathVariable("id")String productId
-    ){
-return repository.getter(productId);
+            @PathVariable("id") String productId
+    ) {
+        return repository.getter(productId);
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value = "/{id}")
     public Product delete(
-            @PathVariable("id")String productId
-    ){
-    Product productFound = repository.getter(productId);
-repository.delete(productId);
-return productFound;
+            @PathVariable("id") String productId
+    ) {
+        Product productFound = repository.getter(productId);
+        repository.delete(productId);
+        return productFound;
     }
 
-     @PutMapping(value = "id")
+    @PutMapping(value = "/{id}")
     public Product updateProduct(
             @PathVariable("id") String productId,
             @RequestBody Product product
-     ){
-repository.update(productId, product);
-return repository.getter(productId);
-     }
+    ) {
+        repository.update(productId, product);
+        return repository.getter(productId);
+    }
 
 }

@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Component
-public class MemoryDB implements ProductRepository{
+//@Component
+public class MemoryDB implements ProductRepository {
     private final Map<String, Product> database = new HashMap<>();
 
     @Override
@@ -22,25 +22,26 @@ public class MemoryDB implements ProductRepository{
 
     @Override
     public void create(Product product) {
-Product productFound = database.get(product.getId());
-if (productFound != null) throw new IllegalArgumentException("The product with the id: " + product.getId() + " already exists.");
+        Product productFound = database.get(product.getId());
+        if (productFound != null)
+            throw new IllegalArgumentException("The product with the id: " + product.getId() + " already exists.");
 
-database.put(product.getId(), product);
+        database.put(product.getId(), product);
     }
 
     @Override
     public void update(String id, Product product) {
-Product productFound = database.get(id);
-if (productFound == null) throw new IllegalArgumentException("not found");
+        Product productFound = database.get(id);
+        if (productFound == null) throw new IllegalArgumentException("not found");
 
-database.put(id, product);
+        database.put(id, product);
     }
 
     @Override
     public void delete(String id) {
-Product productFound =database.get(id);
-if (productFound == null) throw new IllegalArgumentException("not found");
-    database.remove(id);
+        Product productFound = database.get(id);
+        if (productFound == null) throw new IllegalArgumentException("not found");
+        database.remove(id);
     }
 
 }
