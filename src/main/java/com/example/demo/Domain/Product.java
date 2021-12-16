@@ -1,41 +1,51 @@
 package com.example.demo.Domain;
 
 public class Product {
-    private String name;
-    private double price;
-    private String id;
+    private ProductName productName;
+    private ProductPrice productPrice;
+    private ProductId productId;
+    private ProductDescription productDescription;
 
-    public Product(String name, double price, String id) {
-        this.name = name;
-        this.price = price;
-        this.id = id;
+    public Product(ProductName productName, ProductPrice productPrice, ProductId productId, ProductDescription productDescription) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productId = productId;
+        this.productDescription = productDescription;
     }
 
     public Product(){
 
     }
 
-    public String getName() {
-        return name;
+    public ProductName getName() {
+        return productName;
     }
 
-    public double getPrice() {
-        return price;
+    public ProductPrice getPrice() {
+        return productPrice;
     }
 
-    public String getId() {
-        return id;
+    public ProductId getId() {
+        return productId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(ProductId productId) {
+        this.productId = productId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPrice(ProductPrice productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(ProductName productName) {
+        this.productName = productName;
+    }
+
+    public ProductDescription getDescription() {
+        return productDescription;
+    }
+
+    public void setDescription(ProductDescription productDescription) {
+        this.productDescription = productDescription;
     }
 }
