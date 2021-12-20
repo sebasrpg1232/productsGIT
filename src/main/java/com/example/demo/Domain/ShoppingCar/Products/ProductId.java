@@ -1,14 +1,15 @@
-package com.example.demo.Domain;
+package com.example.demo.Domain.ShoppingCar.Products;
 
-import java.util.Objects;
 import java.util.UUID;
+
+import static com.example.demo.Validations.DomainValidations.ControllersValidations.ValidateId;
 
 public class ProductId {
     private final UUID value;
 
 
     public ProductId(UUID value) {
-        Objects.requireNonNull(value, "El id no debe ser null");
+        ValidateId(value);
         this.value = value;
     }
 

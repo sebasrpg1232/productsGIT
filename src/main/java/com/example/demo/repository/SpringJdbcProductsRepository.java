@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.Domain.*;
+import com.example.demo.Domain.ShoppingCar.Products.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -20,7 +20,7 @@ public class SpringJdbcProductsRepository implements ProductRepository{
         ProductId productId = ProductId.fromString(
                 resultSet.getString("id_number")
         );
-        ProductName productName = new ProductName(resultSet.getString("name"));
+        ProductName productName = new ProductName(resultSet.getString("|"));
         ProductDescription productDescription = new ProductDescription(resultSet.getString("description"));
         ProductPrice productPrice = new ProductPrice(new BigDecimal(resultSet.getString("price")));
         return new Product(

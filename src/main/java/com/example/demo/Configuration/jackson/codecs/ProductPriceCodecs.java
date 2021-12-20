@@ -1,6 +1,7 @@
-package com.example.demo.Configuration.jackson.codecs;
+/*package com.example.demo.Configuration.jackson.codecs;
 
-import com.example.demo.Domain.ProductPrice;
+import com.example.demo.Domain.ShoppingCar.Money;
+import com.example.demo.Domain.ShoppingCar.Products.ProductPrice;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -18,19 +19,20 @@ public class ProductPriceCodecs {
         public static class Serializer extends JsonSerializer<ProductPrice> {
             @Override
             public void serialize(ProductPrice value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-            BigDecimal number = new BigDecimal(String.valueOf(value));
+                BigDecimal number = new BigDecimal(String.valueOf(value));
                 gen.writeNumber(number);
             }
-
+        }
             public static class Deserializer extends JsonDeserializer<ProductPrice> {
 
 
                 @Override
                 public ProductPrice deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
-                    return new ProductPrice(new BigDecimal(String.valueOf(p)));
+                    return new ProductPrice(new Money("usd", BigDecimal.valueOf(p)));
 
             }
-        }
+
     }
 
 }
+*/

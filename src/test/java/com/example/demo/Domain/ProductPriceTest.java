@@ -1,5 +1,6 @@
 package com.example.demo.Domain;
 
+import com.example.demo.Domain.ShoppingCar.Products.ProductPrice;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ class ProductPriceTest {
     @TestFactory
     @DisplayName("valid Values")
     Stream<DynamicTest> validValues() {
-        return IntStream.range(1, 100).mapToObj(value -> BigToTesting(new BigDecimal(value)));
+        return IntStream.range(1, 10).mapToObj(value -> BigToTesting(new BigDecimal(value)));
     }
 
     @Test

@@ -1,16 +1,37 @@
-package com.example.demo.Domain;
+package com.example.demo.Domain.ShoppingCar.Products;
+
+import static com.example.demo.Validations.DomainValidations.ControllersValidations.ValidateProduct;
 
 public class Product {
     private ProductName productName;
     private ProductPrice productPrice;
     private ProductId productId;
     private ProductDescription productDescription;
+    private ProductQuantity productquantity;
 
-    public Product(ProductName productName, ProductPrice productPrice, ProductId productId, ProductDescription productDescription) {
+    public Product(
+            ProductName productName,
+            ProductPrice productPrice,
+            ProductId productId,
+            ProductDescription productDescription,
+            ProductQuantity productQuantity
+    ) {
+
+        ValidateProduct( productName, productPrice, productId, productDescription, productQuantity);
+
         this.productName = productName;
         this.productPrice = productPrice;
         this.productId = productId;
         this.productDescription = productDescription;
+        this.productquantity = productQuantity;
+    }
+
+    public ProductQuantity getProductquantity() {
+        return productquantity;
+    }
+
+    public void setProductquantity(ProductQuantity productquantity) {
+        this.productquantity = productquantity;
     }
 
     public Product(){

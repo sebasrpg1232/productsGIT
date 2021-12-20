@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
-import com.example.demo.Domain.Product;
+import com.example.demo.Domain.ShoppingCar.Products.Product;
 import com.example.demo.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.example.demo.Validations.ControllerValidations.ControllerValidations.ValidateProduct;
+
 
 @RestController
 @RequestMapping(value = "/product")
@@ -15,19 +18,28 @@ public class ProductController {
         this.repository = repository;
     }
 
+
     @GetMapping
     public List<Product> listProduct() {
         return repository.list();
     }
 
+
     @PostMapping
     public Product createAProduct(
-            @RequestBody Product product
+            @PathVariable("productName")String productName,
+            @PathVariable("productId")String productId,
+            @PathVariable("productPrice")String productPrice,
+            @PathVariable("productDescription")String productDescription,
+            @PathVariable("productDivisa")String productDivisa,
+            @PathVariable("productQuantity")String productQuantity
+            @RequestBody createProductInput unSafeInput
     ) {
-        //   System.out.println(product.toString());
-        repository.create(product);
-        return product;
+        ValidateProduct( productName, productDescription, productId, productQuantity,  productPrice, productDivisa);
+      //  repository.create(product);
+      //  return product;
     }
+
 
     @GetMapping(value = "/{id}")
     public Product getById(

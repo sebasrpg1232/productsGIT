@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import com.example.demo.Domain.Product;
+import com.example.demo.Domain.ShoppingCar.Products.Product;
 
 public class CreateProductOutput {
     private Product product;

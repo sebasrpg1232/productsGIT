@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.Domain.Product;
+import com.example.demo.Domain.ShoppingCar.Products.Product;
 
 import java.util.List;
 

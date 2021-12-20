@@ -1,7 +1,6 @@
 package com.example.demo.Configuration.jackson.codecs;
 
-import com.example.demo.Domain.ProductDescription;
-import com.example.demo.Domain.ProductName;
+import com.example.demo.Domain.ShoppingCar.Products.ProductName;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -18,7 +17,7 @@ public class ProductNameCodecs {
         public void serialize(ProductName value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
             gen.writeString(value.toString());
         }
-
+    }
         public static class Deserializer extends JsonDeserializer<ProductName> {
 
             @Override
@@ -27,4 +26,4 @@ public class ProductNameCodecs {
             }
         }
     }
-}
+
